@@ -23,7 +23,6 @@ from .modules.module_filter import ModuleFilter
 from .dolibarr_bean import DolibarrBean
 from .dolibarrpy_cached import DolibarrCached
 import re
-from django.utils import translation
 class DolibarrApiServiceCached(DolibarrCached):
 
     def __init__(self):
@@ -95,14 +94,13 @@ class DolibarrApiServiceCached(DolibarrCached):
         bean = DolibarrBean(module_name.capitalize(), response, relationship_list, relationship_name=action)
         return bean
     
-    def get_module_fields(self, module_name, extrafield = False, extrafield_module = ''):
+    def get_module_fields(self, module_name, extrafield = False, extrafield_module = '', current_language = 'en'):
         """
         @endpoint get module fields /get<module>fields/
         @param module_name: Name of the module
         @return list of fields
         """
         url = self._url + module_name + '/get' + module_name + 'fields'
-        current_language = translation.get_language()
         params = {
             'lang': current_language
         }
