@@ -21,7 +21,7 @@ pip install -r requirements.txt
 ```
 
 ## Dolibarr API Configuration
-To use DolibarrPY, you need to create the following configuration file with your Dolibarr API credentials:
+To use DolibarrPY, you need to create a configuration file named `dolibarrpy.ini` with your Dolibarr API credentials:
 
 ```ini
 [Dolibarr API Credentials]
