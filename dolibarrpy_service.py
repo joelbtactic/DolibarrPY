@@ -174,3 +174,18 @@ class DolibarrApiService(Dolibarr):
         bean = DolibarrBean(module_name.capitalize(), params)
         bean['id'] = response
         return bean
+
+    def delete_record(self, module_name, id):
+        """
+        @endpoint delete record id /<module_name>/<id>
+        @param module_name: Name of the module
+        @param id: Id of the record
+        @return: response
+        """
+        response_lst = []
+
+        url = self._url + module_name + '/' + str(id)
+        response = self._call('delete' , url)
+        response_lst.append(response)
+        response = self._get_response_data(response_lst)[0]
+        return response
