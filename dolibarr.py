@@ -24,7 +24,7 @@ import requests
 import logging
 import json
 
-class Dolibarr(Singleton):
+class Dolibarr(metaclass=Singleton):
     conf = ConfigD()
     _logger = logging.getLogger('bPortal')
 
